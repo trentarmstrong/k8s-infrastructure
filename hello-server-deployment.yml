@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+    name: hello-server
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: hello-server
+      labels:
+        app: hello-server
+    spec:
+      containers:
+        - name: server
+          image: "trentarmstrong/hello-server:latest"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+              protocol: TCP
+
+
